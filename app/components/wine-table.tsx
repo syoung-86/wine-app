@@ -38,7 +38,6 @@ export default function WineTable() {
     return <div>Error: {error?.message}</div>;
   }
 
-
   const handleEditClick = (id: number) => {
     router.push(`/edit?id=${id}`);
   };
@@ -49,9 +48,13 @@ export default function WineTable() {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Wines</h1>
-      <button onClick={handleCreateClick}
-    className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg"
-      > Create </button>
+      <button
+        onClick={handleCreateClick}
+        className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg"
+      >
+        {" "}
+        Create{" "}
+      </button>
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm divide-y divide-gray-200">
           <thead>
