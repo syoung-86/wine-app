@@ -15,7 +15,7 @@ type Wine = {
 };
 export default function WineTable() {
   const [wines, setWines] = useState<Wine[]>([]);
-
+  const router = useRouter();
   const { data, isLoading, isError, error } = trpc.wines.getWines.useQuery();
 
   // Update the wines state when data is fetched
@@ -38,7 +38,6 @@ export default function WineTable() {
     return <div>Error: {error?.message}</div>;
   }
 
-  const router = useRouter();
 
   const handleEditClick = (id: number) => {
     router.push(`/edit?id=${id}`);

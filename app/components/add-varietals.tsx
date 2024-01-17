@@ -43,7 +43,7 @@ const AddVarietals: React.FC<AddVarietalsProps> = ({
         } else if (varietalIsError) {
             console.error("Error fetching wine:", varietalError);
         }
-    }, [varietalData]);
+    }, [varietalData, varietalError, varietalIsError]);
 
     const {
         data: varietalWineData,

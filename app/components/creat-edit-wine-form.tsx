@@ -22,6 +22,7 @@ export default function CreateEditWineForm({ id }: { id: number | null }) {
   const [isConsumed, setIsConsumed] = useState(wine?.consumed || false); // Initialize with the value from wine or false if it's not available
   const updateWineMutation = trpc.wines.updateWine.useMutation();
   const createWineMutation = trpc.wines.createWine.useMutation();
+  const router = useRouter();
   const {
 data: wineData,
           isLoading: wineIsLoading,
@@ -67,7 +68,6 @@ const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 try {
     const validData = updateWineSchema.parse(formValues);
     updateWineMutation.mutate(validData);
-    const router = useRouter();
     router.push(`/list`);
   } catch (error) {
     console.error("Validation failed", error);
@@ -85,7 +85,6 @@ try {
 try {
     const validData = createWineSchema.parse(formValues);
     createWineMutation.mutate(validData);
-    const router = useRouter();
     router.push(`/list`);
   } catch (error) {
     console.error("Validation failed", error);
