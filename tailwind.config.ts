@@ -15,6 +15,11 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+plugins: [
+    require("@catppuccin/tailwindcss")({
+      prefix: false,
+      defaultFlavour: "Macchiato",
+    }),
+  ],
 }
 export default config

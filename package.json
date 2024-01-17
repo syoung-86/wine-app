@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@catppuccin/palette": "^1.0.3",
     "@prisma/client": "^5.8.1",
     "@tanstack/react-query": "^5.17.12",
     "@trpc/client": "^11.0.0-next-beta.193",
@@ -18,11 +19,13 @@
     "@vercel/postgres": "^0.5.1",
     "csv-parser": "^3.0.0",
     "next": "14.0.4",
+    "next-auth": "^4.24.5",
     "react": "^18",
     "react-dom": "^18",
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@catppuccin/tailwindcss": "^0.1.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

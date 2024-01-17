@@ -6,7 +6,7 @@ export const appRouter = router({
   healthcheck: publicProcedure.query(() => {
     return "OK";
   }),
-  wines: wineRouter ,
+  wines: wineRouter,
 });
 
 export type AppRouter = typeof appRouter;

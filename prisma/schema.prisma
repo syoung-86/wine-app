@@ -7,14 +7,29 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
-model wines {
-  id            Int       @id @default(autoincrement())
-  name          String    @db.VarChar(50)
-  year          Int
-  type          String    @db.VarChar(50)
-  varietal      String    @db.VarChar(50)
-  rating        Decimal?  @db.Decimal(2, 1)
-  consumed      Boolean?
-  date_consumed DateTime? @db.Date
+model Varietal {
+    id            Int    @id @default(autoincrement())
+    name          String @unique
+    wines         WineVarietal[]
 }
+
+model WineVarietal {
+    wineId     Int
+    varietalId Int
+    wine       Wine     @relation(fields: [wineId], references: [id])
+    varietal   Varietal @relation(fields: [varietalId], references: [id])
+
+    @@id([wineId, varietalId])
+}
+
+model Wine {
+    id            Int           @id @default(autoincrement())
+    name          String        @db.VarChar(50)
+    year          Int
+    type          String        @db.VarChar(50)
+    rating        Decimal?      @db.Decimal(2, 1)
+    consumed      Boolean?
+    date_consumed DateTime?     @db.Date
+    varietals     WineVarietal[]
+}
+
