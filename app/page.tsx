@@ -1,8 +1,3 @@
-'use client';
-import { useRouter } from "next/navigation";
-
-export default function Home() {
-    const router = useRouter();
-    router.push('/list');
+export default async function Home() {
   return <div></div>;
 }
